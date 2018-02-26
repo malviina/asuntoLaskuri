@@ -1,0 +1,159 @@
+/* GENERAL */
+
+body {
+    font-family: "Open sans", sans-serif;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-family: serif;
+}
+
+img {
+    width: 100%;
+}
+
+.wrapper {
+    background-color: white;
+    width: 800px;
+    margin: auto;
+}
+
+header {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.ingressi {
+    font-size: 1.2em;
+}
+
+.featured-img {
+    width: 100%;
+    height: auto;
+    text-align: center;
+
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+    box-sizing: border-box;
+    padding: 1em 6em;
+    line-height: 1.5em;
+    margin: auto;
+}
+
+
+.laskuri {
+    margin: 2em auto 3em auto;
+    padding: 1em;
+    font-size: 1rem;
+}
+
+.btn {
+    font-size: 1em;
+    background-color: #43a7a7;
+    margin: 0.2em;
+    padding: 0.5em;
+    border-radius: 0;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background-color: #347777;
+}
+
+.selected-false {
+    background-color: #bbb;
+}
+
+.center {
+    text-align: center;
+}
+
+.pienenna, .suurenna {
+    display: inline-block;
+    margin: 0 0.5em;
+    width: 1em;
+    height: 1em;
+    background-color: #43a7a7;
+}
+
+
+.input {
+    width: inherit;
+}
+
+input, select {
+    padding: 0.5em;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1rem;
+}
+
+option {
+    font-size: 1rem;
+}
+#inp::after {
+    position: relative;
+    float: right;
+    top: 10%;
+    right: 15px;
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: -1em;
+    border-color: #808080 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    content: '';
+}
+
+option{
+    padding: 1.5em;
+}
+
+.highlight {
+    color: #e83788;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.krediitit {
+    position: absolute;
+    top: 0;
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 0.7em;
+    color: #aaa;
+}
+
+.krediitit:hover {
+    color: #888;
+}
+/* Media inqueries */
+
+@media only screen and (max-width: 800px) {
+    .wrapper {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        width: 90%;
+    }
+    .main-content {
+        width: 90%;
+        padding: 0.5em;
+    }
+} 
