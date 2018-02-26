@@ -1,3 +1,7 @@
+#Yritin saada tätä scriptiä toimimaan, jotta olisin saanut aineistosta tarkempaa siten,
+#että sellaisten paikkakuntien dataa ei käytettäisi sellaisenaan, joista löytyy vain
+#muutama mittauspiste. En kuitenkaan lopulta ehtinyt...
+
 # -*- coding: utf-8 -*-
 import csv
 import pandas as pd
