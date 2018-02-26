@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.4.3/rzslider.min.js"></script>
+        <script src="./js/nouislider.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <link rel="stylesheet" type="text/css" href="./css/nouislider.min.css">
+        
+        <title>Kuinka paljon asunnot maksavat?</title>
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <header>
+                <div class="featured-img"><img src="images/houses.jpg" /><a class="krediitit" href="https://www.freepik.com/free-photos-vectors/house">House vector created by Freepik</a></div>
+                <h1 class="title">Kuinka paljon asunnon vuokraaminen maksaa sinun asuinalueellasi?</h1>
+                <p class="ingressi">Asutko vuokralla vai omistusasunnossa? Katso laskuristamme, kuinka paljon sinun asunnostasi voisi pyytää vuokraa, tai onko vuokrasi enemmän vai vähemmän kuin asuinpaikkakunnallasi keskimäärin.</p>
+            </header>
+
+            <main class="main-content">
+                
+                <p>Katsoimme, minkä hintaisia asuntoja Vuokraovi.com-palvelussa on tarjolla vuokralle. </p>
+                
+                <p>Kuinka paljon asunnot maksavat sinun asuinalueellasi? Ota selvää laskurillamme. Aineisto on kerätty Vuokraovi.com palvelussa vuokralla olevista asunnoista.</p>
+                
+                <div class="laskuri" ng-app="asuntoLaskuri" ng-controller="AsuntoLaskuriController as asuntoLaskuri">
+                
+                    <p>Asutko omistusasunnossa vai vuokralla?</p>
+                    <div class="center">
+                        <button class="btn selected-{{omistus}} " ng-click="omistus = true; vuokralla = false">Omistusasunnossa</button>
+                        <button class="btn selected-{{vuokralla}}" ng-click="vuokralla = true; omistus = false;">Vuokralla</button>
+                    </div>
+                    <div ng-show="vuokralla || omistus">
+                        <p>Valitse paikkakunta:</p>
+                    
+                        <select ng-model="selectPaikkakunta" ng-options="x.paikka for x in data  | orderBy :'paikka'" ng-change="paikkakuntaSelected()">{{x + ", " + x.city}}</select>
+                    </div>
+                        
+                    
+                    
+                    
+                    <div id="nelioDIV" ng-show="paikkakuntaKysytty">
+                        <p>Kuinka monta neliötä asunnossasi on?</p>
+                        
+                        <div id="nelioSlider"></div>
+                        
+                        
+                        
+                        
+                        <input type="number" ng-model="neliot" min="0" is-enter="kysyVuokra()" ng-change="laskeVuokra()">
+                        
+                    </div>
+                    
+                    <div id="vuokraDIV" ng-show="neliotKysytty && vuokralla">
+                        <p>Mikä on vuokrasi?</p>
+                        <input type="number" ng-model="vuokra" min="0" is-enter="vuokraSelected()" ng-change="laskeVuokra()">
+                    </div>
+                    
+                    
+                    <p ng-show="laskettu && vuokralla && vuokraKysytty">Vuokrasi <span class="highlight">{{vuokra}}</span> euroa on <span class="highlight">{{suurempiVaiPienempi}}</span> kuin yleensä alueella {{selectPaikkakunta.paikka}}. <span class="highlight">{{neliot}}</span> neliön asunnon vuokraaminen maksaa keskimäärin <span class="highlight">{{laskettuVuokra | number:0}}</span> euroa kuukaudessa.</p>
+                    
+                    <p ng-show="laskettu && omistus">Paikkakunnalla <span class="highlight">{{selectPaikkakunta.paikka}}</span> tyypillinen hinta <span class="highlight">{{neliot}}</span> neliön asunnosta on <span class="highlight">{{laskettuVuokra | number:0}}</span> euroa kuukaudessa.</p>
+
+                
+                    </div>
+                
+            </main>
+        </div>
+        
+        <script src="./js/asuntolaskuri.js"></script>
+        
+        
+    </body>
+
+</html>
